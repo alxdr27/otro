@@ -14,8 +14,8 @@ let start = function () {
         if (count > 0) {
             //переменная получения цифры от пользователя
             let userNumber = +prompt("Угадай число от 1 до 100");
-            //конец игры, если нажали отмена
-            if (userNumber==false) {
+            //если пользователь нажал отмена или ввёл ноль
+            if (userNumber === 0){
                 alert("До свидания");
                 return;
             }
@@ -28,7 +28,7 @@ let start = function () {
             } else if (userNumber < num) {
                 alert("Загаданное число больше, у вас осталось "+count+" попыток");
                 return getUserNum();
-            } else if (userNumber == num) {
+            } else if (userNumber === num) {
                 alert("Поздравляю, вы угадали. Хотели бы сыграть еще?")
                 return start();
             } else if (userNumber = !isNumber(userNumber)) {
@@ -38,7 +38,7 @@ let start = function () {
         //Если попытки закончились    
         } else {
             let playAgain = confirm("Попытки закончились, хотите сыграть еще?");
-            if(playAgain==true){
+            if(playAgain === true){
                 return start();
             } else {
                 alert("До свидания");
